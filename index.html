@@ -1,60 +1,204 @@
-h            : auto;
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JY Graphics - Premium Banner Design</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body, html { height: 100%; width: 100%; background-color: #ffffff; color: #111111; display: flex; flex-direction: column; }
+        
+        /* 1. सबसे ऊपर की चलती हुई पट्टी */
+        .top-bar-marquee { 
+            background-color: #f8f9fa; 
+            width: 100%; 
+            border-bottom: 1px solid #eeeeee;
+            font-weight: bold;
+            font-size: 0.95rem; 
+            overflow: hidden;
+            padding: 10px 0;
+            line-height: 1;
+        }
+
+        .top-bar-marquee span, 
+        .top-bar-marquee a { 
+            color: #000000 !important; 
+            text-decoration: none !important; 
+            font-size: 0.95rem !important; 
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold !important;
+        }
+
+        /* नया लोगो एरिया बॉक्स */
+        .header-logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px 5px 10px;
+            background-color: #ffffff;
+        }
+
+        .logo-box {
+            text-align: center;
+            width: 100%;
+            max-width: 240px;
+        }
+
+        .logo-box svg {
+            width: 100%;
+            height: auto;
             display: block;
         }
 
-        /* मुख्य कंटेंट एरिया */
-        .content {
-            padding: 60px 20px;
-            text-align: center;
-        }
+        /* ऊपरी नेविगेशन बटन्स */
+        .top-menu-container { width: 100%; display: flex; justify-content: center; padding: 15px 10px; background-color: #ffffff; border-bottom: 1px solid #f1f5f9; }
+        .menu-buttons { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; max-width: 600px; }
+        
+        /* छोटे और स्लिम बटन्स की स्टाइल */
+        .nav-btn { background: #f1f5f9; color: #333333; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cbd5e1; cursor: pointer; transition: all 0.2s ease; }
+        .nav-btn:hover, .nav-btn.active { background: #e97022; color: white; border-color: #e97022; }
 
-        .content h1 {
-            font-size: 2.2rem;
-            color: #111111;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+        /* अलग-अलग पेजों का कंटेंट आदेश */
+        .page-content { display: none; flex: 1; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; max-width: 800px; margin: 0 auto; width: 100%; animation: fadeIn 0.3s ease; }
+        .page-content.active { display: flex; }
 
-        .content p {
-            font-size: 1.2rem;
-            color: #666666;
-            line-height: 1.6;
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h1 { font-size: 2.2rem; color: #111111; line-height: 1.2; text-transform: uppercase; margin-bottom: 15px; }
+        h1 span { color: #1d529c; display: block; font-size: 1.9rem; }
+        
+        /* रॉकेट को हिलाने की कोडिंग */
+        .rocket-emoji {
+            display: inline-block;
+            animation: floatRocket 2s ease-in-out infinite;
+        }
+        @keyframes floatRocket {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* व्हाट्सएप बटन */
+        .whatsapp-btn { background-color: #25D366; color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-size: 1rem; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); margin-top: 15px; }
+        .whatsapp-btn:hover { background-color: #1ebd58; }
+
+        /* सर्विसेस इनफार्मेशन बॉक्स की स्टाइल */
+        .services-box { text-align: left; background: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 550px; width: 100%; margin-top: 20px; }
+        .services-box p { font-size: 1.05rem; color: #475569; margin-bottom: 15px; line-height: 1.5; text-align: center; font-weight: 500; }
+        .services-list { list-style: none; }
+        .services-list li { font-size: 1.1rem; color: #1e293b; margin-bottom: 12px; padding-left: 5px; font-weight: 600; }
+
+        /* नीचे का नीला फुटर */
+        .contact-footer { background-color: #1d529c; color: white; padding: 30px 20px; text-align: center; width: 100%; margin-top: auto; }
+        .contact-footer h2 { font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; }
+        .contact-footer .action-title { font-size: 1.4rem; font-weight: bold; }
+        .contact-link { color: #fffb00; text-decoration: none; font-size: 1.6rem; font-weight: bold; display: inline-block; }
+
+        @media (min-width: 768px) { 
+            h1 { font-size: 3.2rem; } 
+            h1 span { font-size: 2.6rem; } 
+            .nav-btn { padding: 8px 18px; font-size: 0.95rem; } 
         }
     </style>
 </head>
 <body>
 
-    <!-- वेबसाइट का हेडर और आपका लोगो (इन-बिल्ट कोड के साथ) -->
-    <header>
-        <div class="logo-box">
-            <a href="index.html" style="text-decoration: none; display: block;">
-                <!-- आपका असली लोगो डिज़ाइन कोड में -->
-                <svg xmlns="http://w3.org" viewBox="0 0 400 320">
-                    <!-- जे और ए का सिंबल (JA Emblem) -->
-                    <g id="emblem" transform="translate(10, 0)">
-                        <!-- नारंगी जे (Orange J-Curve) -->
-                        <path d="M 170 145 C 160 155, 148 152, 142 140 C 130 115, 150 78, 175 60 C 182 55, 192 60, 190 70 C 182 110, 180 135, 170 145 Z" fill="#e97022" />
-                        <!-- नीला जोड़ (Blue Center Segment) -->
-                        <path d="M 183 95 L 205 130 L 192 135 Z" fill="#1d529c" />
-                        <!-- नारंगी ए (Orange A-Pillar) -->
-                        <path d="M 195 50 C 202 45, 208 48, 212 55 L 250 135 C 255 145, 248 152, 238 148 L 222 142 C 215 138, 212 130, 208 122 L 195 95 Z" fill="#e97022" />
-                    </g>
-                    
-                    <!-- मुख्य नाम (JY GRAPHICS) -->
-                    <text x="200" y="225" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="#e97022" text-anchor="middle" letter-spacing="1.5">JY GRAPHICS</text>
-                    
-                    <!-- टैगलाइन (PREMIUM BANNER DESIGN) -->
-                    <text x="200" y="265" font-family="'Segoe UI', Arial, sans-serif" font-weight="600" font-size="15" fill="#4a4a4a" text-anchor="middle" letter-spacing="3.5">PREMIUM BANNER DESIGN</text>
-                </svg>
-            </a>
-        </div>
-    </header>
-
-    <!-- वेबसाइट की मुख्य जानकारी -->
-    <div class="content">
-        <h1>JY Graphics में आपका स्वागत है</h1>
-        <p>YouTube चैनल आर्ट और सोशल मीडिया बैनर डिज़ाइन सर्विसेज।</p>
+    <!-- सबसे ऊपर की चलती हुई पट्टी -->
+    <div class="top-bar-marquee">
+        <marquee direction="right" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+            <span>CONTACT US NOW: <a href="tel:7891861985">7891861985</a></span>
+            <span style="margin-left: 60px;">EMAIL ID: <a href="mailto:usmanqureshi7891861985@gmail.com">usmanqureshi7891861985@gmail.com</a></span>
+        </marquee>
     </div>
 
-</body>
-    </html>
+    <!-- आपका डिजिटल नया लोगो (वेबसाइट के ऊपर जोड़ने के लिए) -->
+    <div class="header-logo-container">
+        <div class="logo-box">
+            <svg xmlns="http://w3.org" viewBox="0 0 400 240">
+                <!-- जे और ए का सिंबल (JA Emblem) -->
+                <g id="emblem" transform="translate(10, -30)">
+                    <!-- नारंगी जे (Orange J-Curve) -->
+                    <path d="M 170 145 C 160 155, 148 152, 142 140 C 130 115, 150 78, 175 60 C 182 55, 192 60, 190 70 C 182 110, 180 135, 170 145 Z" fill="#e97022" />
+                    <!-- नीला जोड़ (Blue Center Segment) -->
+                    <path d="M 183 95 L 205 130 L 192 135 Z" fill="#1d529c" />
+                    <!-- नारंगी ए (Orange A-Pillar) -->
+                    <path d="M 195 50 C 202 45, 208 48, 212 55 L 250 135 C 255 145, 248 152, 238 148 L 222 142 C 215 138, 212 130, 208 122 L 195 95 Z" fill="#e97022" />
+                </g>
+                <!-- मुख्य नाम (JY GRAPHICS) -->
+                <text x="200" y="165" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="42" fill="#e97022" text-anchor="middle" letter-spacing="1.5">JY GRAPHICS</text>
+                <!-- टैगलाइन (PREMIUM BANNER DESIGN) -->
+                <text x="200" y="205" font-family="'Segoe UI', Arial, sans-serif" font-weight="600" font-size="15" fill="#4a4a4a" text-anchor="middle" letter-spacing="3.5">PREMIUM BANNER DESIGN</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- ऊपरी नेविगेशन बटन्स -->
+    <div class="top-menu-container">
+        <div class="menu-buttons">
+            <button class="nav-btn active" onclick="openPage('home-page', this)">Home</button>
+            <button class="nav-btn" onclick="openPage('services-page', this)">Services</button>
+            <button class="nav-btn" onclick="openPage('portfolio-page', this)">Portfolio</button>
+            <button class="nav-btn" onclick="openPage('about-page', this)">About Us</button>
+            <button class="nav-btn" onclick="openPage('contact-page', this)">Contact</button>
+        </div>
+    </div>
+
+    <!-- 1. होम पेज -->
+    <div id="home-page" class="page-content active">
+        <h1>PREMIUM<br>BANNER DESIGN<br><span>FOR YOU <span class="rocket-emoji">🚀</span></span></h1>
+        <!-- आपका पर्सनल व्हाट्सएप लिंक यहाँ सही नंबर के साथ सेट कर दिया है -->
+        <a href="https://wa.me" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+    </div>
+
+    <!-- 2. SERVICES PAGE -->
+    <div id="services-page" class="page-content">
+        <h1>Our <span>Services</span></h1>
+        <div class="services-box">
+            <p>हम आपके ब्रांड, बिजनेस और सोशल मीडिया चैनल्स को प्रोफेशनल और अट्रैक्टिव लुक देने के लिए हाई-क्वालिटी ग्राफिक्स डिज़ाइन करते हैं।</p>
+            <ul class="services-list">
+                <li>🎯 YouTube Channel Art & Eye-Catching Thumbnails</li>
+                <li>📱 Social Media Banners (Facebook, Instagram, LinkedIn)</li>
+                <li>🎨 Premium Brand Logo & Corporate Identity</li>
+                <li>📢 Business Flyers, Leaflets & Digital Marketing Posters</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3. PORTFOLIO PAGE -->
+    <div id="portfolio-page" class="page-content">
+        <h1>Our <span>Portfolio</span></h1>
+        <div class="services-box" style="text-align: center;">
+            <p>JY Graphics द्वारा डिज़ाइन किए गए प्रीमियम और क्रिएटिव बैनर्स का कलेक्शन यहाँ जल्द ही लाइव किया जाएगा।</p>
+        </div>
+    </div>
+
+    <!-- 4. ABOUT US PAGE -->
+    <div id="about-page" class="page-content">
+        <h1>About <span>JY Graphics</span></h1>
+        <div class="services-box" style="text-align: center;">
+            <p>JY Graphics एक प्रोफेशनल ग्राफिक डिजाइनिंग प्लेटफॉर्म है। हमारा उद्देश्य आपको सबसे कम समय में सबसे आधुनिक और प्रीमियम डिज़ाइन्स डिलीवर करना है।</p>
+        </div>
+    </div>
+
+    <!-- 5. CONTACT PAGE -->
+    <div id="contact-page" class="page-content">
+        <h1>Contact <span>Us</span></h1>
+        <div class="services-box" style="text-align: center;">
+            <p>हमसे सीधा संपर्क करने के लिए ऊपर दिए गए नंबर या ईमेल लिंक का इस्तेमाल करें। हम आपकी मदद के लिए हमेशा तैयार हैं।</p>
+        </div>
+    </div>
+
+    <!-- नीचे का नीला फुटर -->
+    <div class="contact-footer">
+        <h2>CONTACT ME</h2>
+        <div class="action-title">CALL & WHATSAPP</div>
+        <a href="tel:7891861985" class="contact-link">7891861985</a>
+    </div>
+
+    <!-- स्क्रिप्ट लॉजिक -->
+    <script>
+        function openPage(pageId, btnElement) {
+            var contents = document.getElementsByClassName('page-content');
+            
