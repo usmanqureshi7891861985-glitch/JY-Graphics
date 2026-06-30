@@ -8,24 +8,23 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         body, html { height: 100%; width: 100%; background-color: #ffffff; color: #111111; display: flex; flex-direction: column; }
         
-        /* 1. सबसे ऊपर की बिल्कुल स्थिर और फिक्स पट्टी */
+        /* 1. सबसे ऊपर की चलती हुई पट्टी */
         .top-bar-marquee { 
             background-color: #f8f9fa; 
             width: 100%; 
             border-bottom: 1px solid #eeeeee;
             font-weight: bold;
-            font-size: 0.95rem; /* दोनों टेक्स्ट के लिए एक समान मुख्य आकार */
+            font-size: 0.95rem; 
             overflow: hidden;
             padding: 10px 0;
             line-height: 1;
         }
 
-        /* सभी टेक्स्ट और लिंक को पूरी तरह ब्लैक और बिल्कुल एक बराबर साइज में रखने के लिए */
         .top-bar-marquee span, 
         .top-bar-marquee a { 
             color: #000000 !important; 
             text-decoration: none !important; 
-            font-size: 0.95rem !important; /* पूरा टेक्स्ट बिल्कुल सेम साइज में रहेगा */
+            font-size: 0.95rem !important; 
             display: inline-block;
             vertical-align: middle;
             font-weight: bold !important;
@@ -87,7 +86,7 @@
 </head>
 <body>
 
-    <!-- सबसे ऊपर की चलती हुई पट्टी (अब दोनों टेक्स्ट का साइज़ बिल्कुल एक बराबर है) -->
+    <!-- सबसे ऊपर की चलती हुई पट्टी -->
     <div class="top-bar-marquee">
         <marquee direction="right" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
             <span>CONTACT US NOW: <a href="tel:7891861985">7891861985</a></span>
@@ -110,7 +109,9 @@
     <div id="home-page" class="page-content active">
         <div class="logo-area">JY Graphics</div>
         <h1>PREMIUM<br>BANNER DESIGN<br><span>FOR YOU <span class="rocket-emoji">🚀</span></span></h1>
-        <a href="https://wa.me." target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+        
+        <!-- आपका पर्सनल QR कोड आधारित व्हाट्सएप लिंक यहाँ सेट कर दिया है -->
+        <a href="https://wa.me" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
     </div>
 
     <!-- 2. SERVICES PAGE -->
@@ -175,4 +176,4 @@
         }
     </script>
 </body>
-</html>
+                                                                                                                             </html>
