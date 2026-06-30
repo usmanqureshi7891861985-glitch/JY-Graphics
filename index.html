@@ -29,6 +29,9 @@
             vertical-align: middle;
             font-weight: bold !important;
         }
+        .top-bar-marquee a:hover {
+            color: #1d529c !important;
+        }
 
         /* नया लोगो एरिया बॉक्स */
         .header-logo-container {
@@ -54,10 +57,10 @@
 
         /* ऊपरी नेविगेशन बटन्स */
         .top-menu-container { width: 100%; display: flex; justify-content: center; padding: 15px 10px; background-color: #ffffff; border-bottom: 1px solid #f1f5f9; }
-        .menu-buttons { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; max-width: 600px; }
+        .menu-buttons { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; gap: 8px; width: 100%; max-width: 600px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         
         /* छोटे और स्लिम बटन्स की स्टाइल */
-        .nav-btn { background: #f1f5f9; color: #333333; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cbd5e1; cursor: pointer; transition: all 0.2s ease; }
+        .nav-btn { background: #f1f5f9; color: #333333; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cbd5e1; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
         .nav-btn:hover, .nav-btn.active { background: #e97022; color: white; border-color: #e97022; }
 
         /* अलग-अलग पेजों का कंटेंट आदेश */
@@ -67,7 +70,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         h1 { font-size: 2.2rem; color: #111111; line-height: 1.2; text-transform: uppercase; margin-bottom: 15px; }
-        h1 span { color: #1d529c; display: block; font-size: 1.9rem; }
+        h1 span { color: #1d529c; display: block; font-size: 1.9rem; margin-top: 5px; }
         
         /* रॉकेट को हिलाने की कोडिंग */
         .rocket-emoji {
@@ -88,12 +91,12 @@
         .services-box { text-align: left; background: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 550px; width: 100%; margin-top: 20px; }
         .services-box p { font-size: 1.05rem; color: #475569; margin-bottom: 15px; line-height: 1.5; text-align: center; font-weight: 500; }
         .services-list { list-style: none; }
-        .services-list li { font-size: 1.1rem; color: #1e293b; margin-bottom: 12px; padding-left: 5px; font-weight: 600; }
+        .services-list li { font-size: 1.1rem; color: #1e293b; margin-bottom: 12px; font-weight: 600; }
 
         /* नीचे का नीला फुटर */
         .contact-footer { background-color: #1d529c; color: white; padding: 30px 20px; text-align: center; width: 100%; margin-top: auto; }
-        .contact-footer h2 { font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; }
-        .contact-footer .action-title { font-size: 1.4rem; font-weight: bold; }
+        .contact-footer h2 { font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; color: #cbd5e1; }
+        .contact-footer .action-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
         .contact-link { color: #fffb00; text-decoration: none; font-size: 1.6rem; font-weight: bold; display: inline-block; }
 
         @media (min-width: 768px) { 
@@ -116,7 +119,7 @@
     <!-- आपका डिजिटल नया लोगो (वेबसाइट के ऊपर जोड़ने के लिए) -->
     <div class="header-logo-container">
         <div class="logo-box">
-            <svg xmlns="http://w3.org" viewBox="0 0 400 240">
+            <svg viewBox="0 0 400 240" xmlns="http://w3.org">
                 <!-- जे और ए का सिंबल (JA Emblem) -->
                 <g id="emblem" transform="translate(10, -30)">
                     <!-- नारंगी जे (Orange J-Curve) -->
@@ -148,7 +151,7 @@
     <!-- 1. होम पेज -->
     <div id="home-page" class="page-content active">
         <h1>PREMIUM<br>BANNER DESIGN<br><span>FOR YOU <span class="rocket-emoji">🚀</span></span></h1>
-        <!-- आपका पर्सनल व्हाट्सएप लिंक यहाँ सही नंबर के साथ सेट कर दिया है -->
+        <!-- पर्सनल व्हाट्सएप लिंक यहाँ सही नंबर के साथ सेट कर दिया है -->
         <a href="https://wa.me" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
     </div>
 
@@ -195,10 +198,3 @@
         <h2>CONTACT ME</h2>
         <div class="action-title">CALL & WHATSAPP</div>
         <a href="tel:7891861985" class="contact-link">7891861985</a>
-    </div>
-
-    <!-- स्क्रिप्ट लॉजिक -->
-    <script>
-        function openPage(pageId, btnElement) {
-            var contents = document.getElementsByClassName('page-content');
-            
